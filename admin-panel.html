@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - BloodConnect</title>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Notification Container -->
+    <div class="notification-container" id="notificationContainer"></div>
+    
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>BloodConnect Admin</span>
+            </div>
+            <div class="admin-actions">
+                <span id="adminWelcome">Welcome, Admin</span>
+                <button class="btn btn-light" onclick="logoutAdmin()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Dashboard Stats -->
+    <section class="dashboard-stats">
+        <div class="container">
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <div>
+                    <h3 id="totalDonors">0</h3>
+                    <p>Total Donors</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-list"></i>
+                <div>
+                    <h3 id="totalRequests">0</h3>
+                    <p>Blood Requests</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-bell"></i>
+                <div>
+                    <h3 id="pendingRequests">0</h3>
+                    <p>Pending Requests</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-check-circle"></i>
+                <div>
+                    <h3 id="fulfilledRequests">0</h3>
+                    <p>Fulfilled</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Admin Tabs -->
+    <section class="admin-content">
+        <div class="container">
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="showTab('notifications')">
+                    <i class="fas fa-bell"></i> Notifications
+                </button>
+                <button class="tab-btn" onclick="showTab('donors')">
+                    <i class="fas fa-users"></i> Manage Donors
+                </button>
+                <button class="tab-btn" onclick="showTab('requests')">
+                    <i class="fas fa-list"></i> Manage Requests
+                </button>
+                <button class="tab-btn" onclick="showTab('analytics')">
+                    <i class="fas fa-chart-bar"></i> Analytics
+                </button>
+                <button class="btn btn-primary" onclick="exportAllData()">
+                    <i class="fas fa-download"></i> Export Data
+                </button>
+            </div>
+            
+            <!-- Notifications Tab -->
+            <div id="notifications" class="tab-content active">
+                <h2>Recent Notifications & Activity</h2>
+                <div id="notificationsList" class="notifications-list">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            
+            <!-- Donors Tab -->
+            <div id="donors" class="tab-content">
+                <div class="tab-header">
+                    <h2>Manage Donors</h2>
+                    <div class="filters">
+                        <select id="filterBloodGroup" class="input-field">
+                            <option value="">All Blood Groups</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                        <select id="filterAvailability" class="input-field">
+                            <option value="">All Status</option>
+                            <option value="Available">Available</option>
+                            <option value="Not Available">Not Available</option>
+                        </select>
+                        <input type="text" id="filterCity" placeholder="Filter by city" class="input-field">
+                        <button class="btn btn-primary" onclick="applyDonorFilters()">
+                            <i class="fas fa-filter"></i> Apply Filters
+                        </button>
+                        <button class="btn btn-secondary" onclick="clearDonorFilters()">
+                            <i class="fas fa-redo"></i> Clear
+                        </button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Blood Group</th>
+                                <th>Phone</th>
+                                <th>City</th>
+                                <th>Status</th>
+                                <th>Registered</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="donorsTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Requests Tab -->
+            <div id="requests" class="tab-content">
+                <div class="tab-header">
+                    <h2>Manage Blood Requests</h2>
+                    <div class="filters">
+                        <select id="filterRequestBloodGroup" class="input-field">
+                            <option value="">All Blood Groups</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                        <select id="filterUrgency" class="input-field">
+                            <option value="">All Urgency</option>
+                            <option value="Critical">Critical</option>
+                            <option value="Urgent">Urgent</option>
+                            <option value="Normal">Normal</option>
+                        </select>
+                        <select id="filterStatus" class="input-field">
+                            <option value="">All Status</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Fulfilled">Fulfilled</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="applyRequestFilters()">
+                            <i class="fas fa-filter"></i> Apply Filters
+                        </button>
+                        <button class="btn btn-secondary" onclick="clearRequestFilters()">
+                            <i class="fas fa-redo"></i> Clear
+                        </button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Patient</th>
+                                <th>Blood Group</th>
+                                <th>Units</th>
+                                <th>Hospital</th>
+                                <th>Urgency</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="requestsTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Analytics Tab -->
+            <div id="analytics" class="tab-content">
+                <h2>System Analytics</h2>
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Blood Group Distribution</h3>
+                        <canvas id="bloodGroupChart"></canvas>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>Recent Activity Timeline</h3>
+                        <div id="activityTimeline"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/admin-panel.js"></script>
+</body>
+</html>
