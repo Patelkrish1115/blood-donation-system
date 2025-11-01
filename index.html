@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodConnect - Advanced Blood Donation Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Notification Container -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo animate__animated animate__fadeInLeft">
+                <i class="fas fa-heartbeat"></i>
+                <span>BloodConnect</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#donors">Find Donors</a></li>
+                <li><a href="#request">Request Blood</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="admin-login.html" class="btn-nav-admin">Admin Panel</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content animate__animated animate__fadeInLeft">
+                <h1>Donate Blood, Save Lives</h1>
+                <p>Every drop counts. Join our community of life-savers today.</p>
+                <div class="hero-stats-mini">
+                    <div class="mini-stat">
+                        <i class="fas fa-users"></i>
+                        <span id="heroTotalDonors">0</span>
+                        <p>Active Donors</p>
+                    </div>
+                    <div class="mini-stat">
+                        <i class="fas fa-heartbeat"></i>
+                        <span id="heroLivesSaved">0</span>
+                        <p>Lives Saved</p>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#register" class="btn btn-primary pulse-btn">
+                        <i class="fas fa-hand-holding-medical"></i> Register as Donor
+                    </a>
+                    <a href="#request" class="btn btn-secondary">
+                        <i class="fas fa-plus-circle"></i> Request Blood
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image animate__animated animate__fadeInRight">
+                <div class="blood-drop-animation">
+                    <i class="fas fa-tint"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-card animate__animated animate__fadeInUp">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 id="totalDonors">8</h3>
+                <p>Registered Donors</p>
+                <div class="stat-progress">
+                    <div class="progress-bar" style="width: 75%"></div>
+                </div>
+            </div>
+            <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+                <div class="stat-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h3 id="totalBloodGroups">8</h3>
+                <p>Blood Groups Available</p>
+                <div class="stat-progress">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+            </div>
+            <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                <div class="stat-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <h3 id="totalRequests">0</h3>
+                <p>Blood Requests</p>
+                <div class="stat-progress">
+                    <div class="progress-bar" style="width: 60%"></div>
+                </div>
+            </div>
+            <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+                <div class="stat-icon">
+                    <i class="fas fa-city"></i>
+                </div>
+                <h3>50+</h3>
+                <p>Cities Covered</p>
+                <div class="stat-progress">
+                    <div class="progress-bar" style="width: 85%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Banner -->
+    <section class="emergency-banner">
+        <div class="container">
+            <div class="emergency-content">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <h3>Urgent Blood Need!</h3>
+                    <p>We urgently need O- and AB+ donors in Mumbai. Contact: +91 9876543210</p>
+                </div>
+                <button class="btn btn-light">Donate Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Blood Donation</h2>
+            <div class="about-content">
+                <div class="about-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Why Donate?</h3>
+                    <p>Blood donation is a noble act that saves countless lives. One donation can save up to three lives.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safe Process</h3>
+                    <p>Our donation process is completely safe, sterile, and conducted by trained professionals.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Quick & Easy</h3>
+                    <p>The entire donation process takes only 10-15 minutes of your time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Groups Section -->
+    <section class="blood-groups">
+        <div class="container">
+            <h2 class="section-title">Available Blood Groups</h2>
+            <div class="blood-grid" id="bloodGroupsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Find Donors Section -->
+    <section id="donors" class="find-donors">
+        <div class="container">
+            <h2 class="section-title">Find Blood Donors</h2>
+            <div class="search-card">
+                <div class="search-form">
+                    <div class="form-group-inline">
+                        <i class="fas fa-tint"></i>
+                        <select id="searchBloodGroup" class="input-field">
+                            <option value="">Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="form-group-inline">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="searchCity" class="input-field" placeholder="Enter City" list="cityList">
+                    </div>
+                    <button onclick="searchDonors()" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Search Donors
+                    </button>
+                    <button onclick="clearSearch()" class="btn btn-secondary">
+                        <i class="fas fa-redo"></i> Clear
+                    </button>
+                </div>
+            </div>
+            <div id="donorsResult" class="donors-grid">
+                <p style="text-align: center; color: #7f8c8d; grid-column: 1/-1;">🔍 Search for donors using blood group or city</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Blood Section -->
+    <section id="request" class="request-blood">
+        <div class="container">
+            <h2 class="section-title">Request Blood</h2>
+            <form id="requestForm" class="request-form" autocomplete="on">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Patient Name *</label>
+                        <input type="text" name="patient_name" required class="input-field" autocomplete="name" placeholder="Enter patient name">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" name="phone" required class="input-field" pattern="[0-9]{10}" autocomplete="tel" placeholder="10-digit mobile number">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email *</label>
+                        <input type="email" name="email" required class="input-field" autocomplete="email" placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-tint"></i> Blood Group *</label>
+                        <select name="blood_group" required class="input-field">
+                            <option value="">Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-vial"></i> Units Required *</label>
+                        <input type="number" name="units_required" required class="input-field" min="1" max="10" placeholder="Number of units (1-10)">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Required Date *</label>
+                        <input type="date" name="required_date" required class="input-field">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-hospital"></i> Hospital Name *</label>
+                        <input type="text" name="hospital_name" required class="input-field" autocomplete="organization" placeholder="Enter hospital name">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-exclamation-circle"></i> Urgency *</label>
+                        <select name="urgency" required class="input-field">
+                            <option value="Normal">Normal</option>
+                            <option value="Urgent">⚠️ Urgent</option>
+                            <option value="Critical">🚨 Critical</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-city"></i> City *</label>
+                        <input type="text" name="city" required class="input-field" list="cityList" autocomplete="address-level2" placeholder="Select or type city">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-map"></i> State *</label>
+                        <input type="text" name="state" required class="input-field" list="stateList" autocomplete="address-level1" placeholder="Select or type state">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-comment"></i> Additional Message</label>
+                    <textarea name="message" class="input-field" rows="4" placeholder="Any additional information..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-paper-plane"></i> Submit Request
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Register Section -->
+    <section id="register" class="register">
+        <div class="container">
+            <h2 class="section-title">Register as Donor</h2>
+            <form id="registerForm" class="register-form" autocomplete="on">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Full Name *</label>
+                        <input type="text" name="full_name" required class="input-field" autocomplete="name" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email *</label>
+                        <input type="email" name="email" required class="input-field" autocomplete="email" placeholder="your.email@example.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" name="phone" required class="input-field" pattern="[0-9]{10}" autocomplete="tel" placeholder="10-digit mobile number">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-tint"></i> Blood Group *</label>
+                        <select name="blood_group" required class="input-field">
+                            <option value="">Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-venus-mars"></i> Gender *</label>
+                        <select name="gender" required class="input-field">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-birthday-cake"></i> Age *</label>
+                        <input type="number" name="age" required class="input-field" min="18" max="65" placeholder="Between 18-65 years">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-city"></i> City *</label>
+                        <input type="text" name="city" required class="input-field" list="cityList" autocomplete="address-level2" placeholder="Select or type city">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-map"></i> State *</label>
+                        <input type="text" name="state" required class="input-field" list="stateList" autocomplete="address-level1" placeholder="Select or type state">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-mail-bulk"></i> Pincode *</label>
+                        <input type="text" name="pincode" required class="input-field" pattern="[0-9]{6}" autocomplete="postal-code" placeholder="6-digit pincode">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-check-circle"></i> Availability Status *</label>
+                        <select name="availability" required class="input-field">
+                            <option value="Available">✅ Available to Donate</option>
+                            <option value="Not Available">❌ Not Available</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-home"></i> Address *</label>
+                    <textarea name="address" required class="input-field" rows="3" autocomplete="street-address" placeholder="Enter your complete address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-check"></i> Last Donation Date (Optional)</label>
+                    <input type="date" name="last_donation_date" class="input-field">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-user-plus"></i> Register Now
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Blood Bank Street, Medical District, City 560001</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 1234567890</p>
+                            <p>Toll Free: 1800-XXX-XXXX</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@bloodconnect.com</p>
+                            <p>support@bloodconnect.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>24/7 Emergency Service</p>
+                            <p>Office: Mon-Sat 9AM-6PM</p>
+                        </div>
+                    </div>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name *" required class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email *" required class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Your Phone *" required class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject *" required class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message *" required class="input-field" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Datalists for Autocomplete -->
+    <datalist id="cityList">
+        <option value="Mumbai">
+        <option value="Delhi">
+        <option value="Bangalore">
+        <option value="Hyderabad">
+        <option value="Ahmedabad">
+        <option value="Chennai">
+        <option value="Kolkata">
+        <option value="Pune">
+        <option value="Jaipur">
+        <option value="Surat">
+        <option value="Lucknow">
+        <option value="Kanpur">
+        <option value="Nagpur">
+        <option value="Indore">
+        <option value="Thane">
+        <option value="Bhopal">
+        <option value="Visakhapatnam">
+        <option value="Patna">
+        <option value="Vadodara">
+        <option value="Ghaziabad">
+        <option value="Ludhiana">
+        <option value="Agra">
+        <option value="Nashik">
+        <option value="Faridabad">
+        <option value="Meerut">
+        <option value="Rajkot">
+        <option value="Varanasi">
+        <option value="Srinagar">
+        <option value="Amritsar">
+        <option value="Chandigarh">
+    </datalist>
+
+    <datalist id="stateList">
+        <option value="Andhra Pradesh">
+        <option value="Arunachal Pradesh">
+        <option value="Assam">
+        <option value="Bihar">
+        <option value="Chhattisgarh">
+        <option value="Goa">
+        <option value="Gujarat">
+        <option value="Haryana">
+        <option value="Himachal Pradesh">
+        <option value="Jharkhand">
+        <option value="Karnataka">
+        <option value="Kerala">
+        <option value="Madhya Pradesh">
+        <option value="Maharashtra">
+        <option value="Manipur">
+        <option value="Meghalaya">
+        <option value="Mizoram">
+        <option value="Nagaland">
+        <option value="Odisha">
+        <option value="Punjab">
+        <option value="Rajasthan">
+        <option value="Sikkim">
+        <option value="Tamil Nadu">
+        <option value="Telangana">
+        <option value="Tripura">
+        <option value="Uttar Pradesh">
+        <option value="Uttarakhand">
+        <option value="West Bengal">
+        <option value="Delhi">
+        <option value="Jammu and Kashmir">
+        <option value="Ladakh">
+    </datalist>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BloodConnect</h3>
+                    <p>Connecting donors with those in need. Save lives, one donation at a time.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#donors">Find Donors</a></li>
+                        <li><a href="#request">Request Blood</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Important</h3>
+                    <ul>
+                        <li><a href="#">Eligibility</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Emergency</h3>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <p><i class="fas fa-envelope"></i> emergency@bloodconnect.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BloodConnect. All Rights Reserved. Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> for humanity</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
